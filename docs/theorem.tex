@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Commutative Algebra Module Theorem: \\ $\bigcap_{\mathfrak{p} \in \operatorname{Ass}(M)} \mathfrak{p} = \sqrt{\operatorname{Ann}_A(M)}$}
+\author{Project: Multi-Language Implementation}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Theorem Statement}
+Let $A$ be a Noetherian ring, $M$ a finitely generated $A$-module. Then:
+\[
+\bigcap_{\mathfrak{p} \in \operatorname{Ass}(M)} \mathfrak{p} = \sqrt{\operatorname{Ann}_A(M)}
+\]
+where:
+\begin{itemize}
+    \item $\operatorname{Ass}(M)$ denotes the set of associated primes of $M$
+    \item $\operatorname{Ann}_A(M) = \{a \in A \mid aM = 0\}$ is the annihilator
+    \item $\sqrt{I}$ denotes the radical of an ideal $I$
+\end{itemize}
+
+\section{Proof Sketch}
+\subsection{Inclusion $\sqrt{\operatorname{Ann}(M)} \subseteq \bigcap \operatorname{Ass}(M)$}
+Let $x \in \sqrt{\operatorname{Ann}(M)}$. Then $x^n \in \operatorname{Ann}(M)$ for some $n \geq 1$. 
+For any $\mathfrak{p} \in \operatorname{Ass}(M)$, there exists $m \in M$ with $\mathfrak{p} = \operatorname{Ann}(m)$. 
+Since $x^n m = 0$, we have $x^n \in \mathfrak{p}$, hence $x \in \mathfrak{p}$ (as $\mathfrak{p}$ is prime).
+
+\subsection{Inclusion $\bigcap \operatorname{Ass}(M) \subseteq \sqrt{\operatorname{Ann}(M)}$}
+Let $x \in \bigcap_{\mathfrak{p} \in \operatorname{Ass}(M)} \mathfrak{p}$. 
+Consider the increasing chain of submodules:
+\[
+N_k = \{m \in M \mid x^k m = 0\}
+\]
+Since $M$ is Noetherian, $N_n = N_{n+1}$ for some $n$. 
+If $x^n M \neq 0$, take $\mathfrak{q} \in \operatorname{Ass}(x^n M) \subseteq \operatorname{Ass}(M)$. 
+Then $\mathfrak{q} = \operatorname{Ann}(y)$ for some $y = x^n m$. 
+Since $x \in \mathfrak{q}$, we have $xy = 0$, i.e., $x^{n+1} m = 0$. 
+Thus $m \in N_{n+1} = N_n$, so $x^n m = 0$, contradiction. 
+Hence $x^n M = 0$, so $x \in \sqrt{\operatorname{Ann}(M)}$.
+
+\section{Implementation Strategy}
+The theorem is implemented across multiple programming languages:
+\begin{enumerate}
+    \item \textbf{Python}: Core mathematical logic using sympy
+    \item \textbf{Java}: Object-oriented design patterns
+    \item \textbf{C++}: High-performance computation
+    \item \textbf{Go}: Concurrent verification routines
+    \item \textbf{Rust}: Memory-safe systems programming
+    \item \textbf{TypeScript}: Web-based computation
+    \item \textbf{Shell}: Automated build and test scripts
+\end{enumerate}
+
+\section{Business Applications}
+\begin{description}
+    \item[System Reliability] Associated primes represent minimal failure modes; their intersection identifies critical components.
+    \item[Financial Risk] Prime ideals correspond to risk factor sets; the theorem computes systematic risk.
+    \item[Resource Management] Modules represent project portfolios; the theorem finds essential shared resources.
+\end{description}
+
+\end{document}
